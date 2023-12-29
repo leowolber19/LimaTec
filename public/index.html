@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="icon" href="<%= BASE_URL %>icon.svg">
+
+    <title> LimaTec - Elétrica - Automação - Energia Solar </title>
+
+    <style>
+
+      .modo-dark {
+        background-color: #373435 !important;
+        color: #d9d9d9 !important;
+        transition: 1s !important;
+      }
+
+      .color-grey{
+        color: #d9d9d9 !important;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div> 
+  </body>
+  
+</html>
+
+<script>
+
+function onScrollChange() {
+  if (window.scrollY > 0) {
+    document.getElementsByClassName("main-menu")[0].classList.add("fundo-branco");
+    document.getElementsByClassName("texto-logo")[0].classList.add("color-ckm");
+  } else {
+    document.getElementsByClassName("main-menu")[0].classList.remove("fundo-branco");
+    document.getElementsByClassName("texto-logo")[0].classList.remove("color-ckm");
+  }
+}
+
+document.addEventListener('scroll', onScrollChange);
+
+</script>
