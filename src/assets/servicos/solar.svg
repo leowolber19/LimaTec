@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F4F3EF" stroke-opacity=".06"/></pattern></defs>
+<rect width="800" height="420" fill="#1A1819"/><rect width="800" height="420" fill="url(#g)"/>
+<g fill="none" stroke="#F4F3EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M170 346h460"/>
+<path d="M300 300v46M480 300v46"/>
+<path d="M250 300l80-150h240l-40 150z" fill="#232021"/>
+<path d="M320 300l70-150M390 300l60-150M460 300l50-150M276.700 250h266.600M303.300 200h253.400"/>
+<rect x="96" y="150" width="110" height="150" rx="10" fill="#232021"/>
+<path d="M116 180h70M116 204h46" stroke-opacity=".5"/>
+</g>
+<g fill="none" stroke="#FFF212" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="640" cy="96" r="30" fill="#FFF212"/>
+<path d="M640 40v-14M640 166v-14M584 96h-14M710 96h-14M600 56l-10-10M690 146l-10-10M600 136l-10 10M690 46l-10 10"/>
+<path d="M596 128l-50 40" stroke-dasharray="3 10"/>
+<path d="M151 232v44M135 262l16 16 16-16"/>
+</g>
+<text x="124" y="252" fill="#FFF212" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="middle">R$</text>
+</svg>

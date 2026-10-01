@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F4F3EF" stroke-opacity=".06"/></pattern></defs>
+<rect width="800" height="420" fill="#1A1819"/><rect width="800" height="420" fill="url(#g)"/>
+<g fill="none" stroke="#F4F3EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M290 250a110 110 0 0 1 220 0"/>
+<path d="M312 250h-14M502 250h-14M400 162v-14M338 188l-10-10M462 188l10-10" stroke-opacity=".7"/>
+<rect x="290" y="296" width="220" height="18" rx="9"/>
+<rect x="100" y="120" width="130" height="190" rx="12" fill="#232021"/>
+<path d="M150 170h60M150 215h60M150 260h44"/>
+<circle cx="650" cy="210" r="62" fill="#232021"/>
+</g>
+<g fill="none" stroke="#FFF212" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M400 250l58-64" stroke-width="6"/>
+<path d="M120 170l7 7 12-15M120 215l7 7 12-15M120 260l7 7 12-15"/>
+<path d="M650 174v36M628 188a34 34 0 1 0 44 0" stroke-width="6"/>
+</g>
+<circle cx="400" cy="250" r="12" fill="#FFF212"/>
+<rect x="294" y="300" width="160" height="10" rx="5" fill="#FFF212"/>
+</svg>

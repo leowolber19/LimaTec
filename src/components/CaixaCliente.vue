@@ -1,10 +1,12 @@
 <template>
-    <img :src="require(`../assets/${Imagem}`)" :style="{ height: height }">
+    <div class="cartao-cliente">
+        <img :src="require(`../assets/${Imagem}`)" :style="{ maxHeight: height }" :alt="Nome" loading="lazy">
+    </div>
 </template>
-  
+
 <script lang="ts">
   import { defineComponent } from 'vue';
-  
+
   export default defineComponent({
     name: 'CaixaCliente',
     props: {
@@ -14,12 +16,38 @@
         },
         height: {
             type: String,
-            default: "120px"
+            default: "80px"
+        },
+        Nome: {
+            type: String,
+            default: "Cliente LimaTec"
         }
     }
   });
 </script>
-  
+
 <style scoped>
+
+.cartao-cliente {
+    height: 112px;
+    background: #FFFFFF;
+    border: 1px solid var(--cor-linha);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.cartao-cliente img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .cartao-cliente {
+        height: 96px;
+    }
+}
 
 </style>

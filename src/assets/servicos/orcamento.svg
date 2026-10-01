@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F4F3EF" stroke-opacity=".06"/></pattern></defs>
+<rect width="800" height="420" fill="#1A1819"/><rect width="800" height="420" fill="url(#g)"/>
+<g fill="none" stroke="#F4F3EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M95 320h190"/><path d="M120 320V185l70-42 70 42v135"/><rect x="170" y="262" width="40" height="58"/><path d="M146 215h22M212 215h22"/>
+<path d="M276 215h30M494 215h46" stroke-dasharray="3 9"/>
+<rect x="320" y="84" width="160" height="240" rx="12" fill="#232021"/><rect x="364" y="68" width="72" height="30" rx="8" fill="#1A1819"/>
+<path d="M378 150h80M378 200h80M378 250h56"/>
+<rect x="556" y="140" width="130" height="180" rx="12" fill="#232021"/><rect x="574" y="158" width="94" height="40" rx="5"/>
+</g>
+<g fill="none" stroke="#FFF212" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M342 150l8 8 14-17M342 200l8 8 14-17M342 250l8 8 14-17"/>
+<path d="M190 52c-17 0-30 13-30 29 0 21 30 45 30 45s30-24 30-45c0-16-13-29-30-29z" fill="#1A1819"/><circle cx="190" cy="81" r="9"/>
+</g>
+<text x="621" y="186" fill="#FFF212" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle">R$</text>
+<g fill="#F4F3EF"><circle cx="588" cy="226" r="7"/><circle cx="621" cy="226" r="7"/><circle cx="654" cy="226" r="7"/><circle cx="588" cy="258" r="7"/><circle cx="621" cy="258" r="7"/><circle cx="588" cy="290" r="7"/><circle cx="621" cy="290" r="7"/></g>
+<g fill="#FFF212"><circle cx="654" cy="258" r="7"/><circle cx="654" cy="290" r="7"/></g>
+</svg>

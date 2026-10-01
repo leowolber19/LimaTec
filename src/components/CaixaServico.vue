@@ -1,20 +1,31 @@
 <template>
-    <div class="container-servico" @click="abreWhatsApp(TextoWhatsApp)"> 
-        <img :src="require(`../assets/${Imagem}`)" class="imagem-servico" />
-        <div style="display: flex;flex-direction: column;justify-content: space-between;">
-            <p class="paragrafo-titulo"> {{ Titulo }} </p>
-            <p class="paragrafo-texto"> {{ Texto }} </p>
-            <p class="saiba-mais"> Saiba Mais </p>
+    <a class="container-servico" :href="linkWhatsApp(TextoWhatsApp)" target="_blank" rel="noopener">
+        <div class="moldura-imagem">
+            <img :src="require(`../assets/${Imagem}`)" :alt="`Ilustração: ${Titulo}`" class="imagem-servico" loading="lazy">
         </div>
-    </div>
+        <div class="conteudo-servico">
+            <span class="numero-servico"> {{ Numero }} </span>
+            <h3 class="paragrafo-titulo"> {{ Titulo }} </h3>
+            <p class="paragrafo-texto"> {{ Texto }} </p>
+            <span class="saiba-mais">
+                Saiba mais
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+        </div>
+    </a>
 </template>
-  
+
 <script lang="ts">
   import { defineComponent } from 'vue';
-  
+  import { linkWhatsApp } from '@/uteis/contato';
+
   export default defineComponent({
     name: 'CaixaServico',
     props: {
+        Numero: {
+            type: String,
+            default: ""
+        },
         Titulo: {
             type: String,
             default: ""
@@ -33,84 +44,89 @@
         }
     },
     methods: {
-        abreWhatsApp : function(e: string) {
-            window.open(`https://wa.me//5567999871739?text=${e.replaceAll(" ", "%20")}`)
-        }
+        linkWhatsApp
     }
   });
 </script>
-  
+
 <style scoped>
 
-.imagem-servico{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: 100% 0%;
-    border-radius: 10px 10px 0 0;
-}
-
-.container-servico{
+.container-servico {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    color: #373435;
-    font-weight: 500;
-    transition: .25s;
-    align-items: center;
-    max-width: 30%;
-    box-shadow: 0px 9px 13px -11px #969696, 5px 5px 10px 5px rgba(0,0,0,0);
-    border: 1px solid #ebebeb;
-    border-radius: 10px;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-linha);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease;
 }
 
-.container-servico:hover{
-    scale: 1.05;
+.container-servico:hover {
+    transform: translateY(-6px);
+    border-color: var(--cor-destaque-texto);
     cursor: pointer;
-    background: #37343508;
 }
 
-.saiba-mais{
-    margin: 3em 0;
-    font-size: .9em;
-    text-decoration: underline;
+.moldura-imagem {
+    height: 200px;
+    overflow: hidden;
+    background: #1A1819;
 }
 
-.paragrafo-texto{
-    margin: 0px 2em;
-    line-height: 1.75em;
+.imagem-servico {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.container-servico:hover .imagem-servico {
+    transform: scale(1.05);
+}
+
+.conteudo-servico {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 24px 22px;
+    flex-grow: 1;
+}
+
+.numero-servico {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
     font-size: 14px;
-    height: 100px;
+    color: var(--cor-destaque-texto);
 }
 
-.paragrafo-titulo{
-    height: 65px;
-    margin: 2em 2em 2em;
-    font-size: 18px;
-    line-height: 1.75em;
+.paragrafo-titulo {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.paragrafo-texto {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cor-texto-suave);
+    flex-grow: 1;
+}
+
+.saiba-mais {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
     font-weight: 600;
+    font-size: 15px;
+    color: var(--cor-texto);
 }
 
-@media (max-width: 1250px) {
-    .container-servico {
-        max-width: 100%;
-        width: 50%;
-    }
-
-    .main-servico{
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 768px) {
-    .container-servico {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .main-servico{
-        flex-direction: column;
-    }
+.saiba-mais svg {
+    color: var(--cor-destaque-texto);
 }
 
 </style>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#F4F3EF" stroke-opacity=".06"/></pattern></defs>
+<rect width="800" height="420" fill="#1A1819"/><rect width="800" height="420" fill="url(#g)"/>
+<g fill="none" stroke="#F4F3EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<!-- celular com app de automação -->
+<rect x="120" y="90" width="150" height="250" rx="20" fill="#232021"/>
+<rect x="168" y="76" width="54" height="26" rx="7" fill="#1A1819"/>
+<path d="M148 140h40M148 190h40M148 240h40" stroke-opacity=".6"/>
+<rect x="196" y="130" width="46" height="22" rx="11"/>
+<rect x="196" y="180" width="46" height="22" rx="11"/>
+<rect x="196" y="230" width="46" height="22" rx="11"/>
+<path d="M150 290h90" stroke-opacity=".4"/>
+<!-- casa -->
+<rect x="440" y="200" width="250" height="140" fill="#232021"/>
+<polygon points="420,200 565,95 710,200" fill="#232021"/>
+<rect x="543" y="268" width="44" height="72"/>
+<path d="M300 340h440"/>
+</g>
+<!-- janelas acesas -->
+<g stroke="#F4F3EF" stroke-width="3" stroke-linejoin="round">
+<rect x="468" y="228" width="46" height="42" fill="#FFF212"/>
+<rect x="616" y="228" width="46" height="42" fill="#FFF212"/>
+</g>
+<path d="M491 228v42M468 249h46M639 228v42M616 249h46" stroke="#1A1819" stroke-width="2"/>
+<g fill="none" stroke="#FFF212" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<!-- interruptores ligados no app -->
+<circle cx="231" cy="141" r="7" fill="#FFF212"/>
+<circle cx="231" cy="191" r="7" fill="#FFF212"/>
+<circle cx="207" cy="241" r="7"/>
+<!-- wifi sobre a casa -->
+<path d="M549 64a24 24 0 0 1 32 0M539 78a38 38 0 0 1 52 0" stroke-width="3.5"/>
+<!-- conexão celular -> casa -->
+<path d="M290 215c55-25 95-20 140 10" stroke-dasharray="3 11" stroke-width="3.5"/>
+<!-- maçaneta -->
+<circle cx="578" cy="305" r="3" fill="#FFF212"/>
+</g>
+<circle cx="565" cy="92" r="4" fill="#FFF212"/>
+<!-- lâmpada pendurada na varanda -->
+<g fill="none" stroke="#F4F3EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M740 200v40"/>
+<path d="M740 240c-10 9-14 15-14 22a14 14 0 0 0 28 0c0-7-4-13-14-22z" fill="#FFF212" stroke="#FFF212"/>
+</g>
+</svg>

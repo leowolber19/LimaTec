@@ -1,136 +1,164 @@
 <template>
 
-  <!-- IMAGEM PRINCIPAL -->
-  <ImagemParallax 
-    Imagem="ImagemPrincipal.jpg"
+  <!-- HERO PRINCIPAL (carrossel de obras) -->
+  <HeroPrincipal
     TextoWhatsApp="Olá, Gostaria de fazer um orçamento"
-    Titulo="Elétrica, Automação e Energia Solar"
-    SubTitulo="Industrial, Rural, Comercial e Residencial" />
+    SubTitulo="Do projeto ao start-up, para os setores industrial, rural, comercial e residencial." />
+
+  <!-- FAIXA DE NÚMEROS -->
+  <FaixaNumeros />
 
   <!-- CONTEÚDO DO SITE -->
   <section class="module content">
-    <div class="container-module">
+    <div class="container-site">
+
+      <!-- CLIENTES -->
+      <div class="secao-clientes">
+        <span class="rotulo-secao"> Quem confia na LimaTec </span>
+        <div class="container-images">
+            <CaixaCliente
+              Imagem="Cliente1.jpeg"
+              Nome="Laudejá Agronegócio"
+              height="78px" />
+
+            <CaixaCliente
+              Imagem="Cliente2.jpeg"
+              Nome="Vale Urucum"
+              height="78px" />
+
+            <CaixaCliente
+              Imagem="Cliente3.jpeg"
+              Nome="Curicaca Armazéns Gerais"
+              height="80px" />
+
+            <CaixaCliente
+              Imagem="Cliente4.svg"
+              Nome="Cliente LimaTec"
+              height="62px" />
+        </div>
+      </div>
 
       <!-- EMPRESA -->
       <SobreEmpresa
         TituloPrimeiroParagrafo="SOBRE NÓS"
-        TextoPrimerioPagrafo="Desde 2010 atuando seriamente na execução de Instalações Elétricas e Automações Industriais, a LimaTec conseguiu firmar sua marca nesse mercado com participação em mais de 500 obras por todo Brasil e conquistar uma imagem de solidez e confiança. Ao longo desses anos, nos dedicamos em expandir nossa área de atuação, trabalhando também no setor industrial, rural e fotovoltaico."
+        TextoPrimerioPagrafo="Desde 2010 na execução de instalações elétricas e automações industriais, a LimaTec firmou sua marca com mais de 500 obras por todo o Brasil, atuando nos setores industrial, rural, comercial e fotovoltaico."
         TituloSegundoParagrafo="ÁREAS ATUANTES"
-        TextoSegundoPagrafo="A LimaTec se orgulha em ter desenvolvido know-how suficiente para construir usinas fotovoltaicas, sistemas de controle e automação industrial, sistemas especiais para Data Centers, telecomunicações e dados. E o mais importante: orgulho de tornar as edificações habitáveis e as indústrias prontas para operar em plena carga, realizando as instalações da melhor maneira possível, sem comprometer o andamento do trabalho e a segurança." 
+        TextoSegundoPagrafo="Construímos usinas fotovoltaicas, sistemas de controle e automação industrial e soluções para data centers e telecomunicações — instalações bem executadas, com segurança e sem comprometer o andamento da obra."
         />
-      
-      <!-- CLIENTES -->
-      <SubTituloLinha Texto="ALGUNS CLIENTES" />
+    </div>
+  </section>
 
-      <div class="container-images SCROLL_SERVICO">
-          <CaixaCliente 
-            Imagem="Cliente1.jpeg"
-            height="120px" />
-
-          <CaixaCliente 
-            Imagem="Cliente2.jpeg"
-            height="100px" />
-
-          <CaixaCliente 
-            Imagem="Cliente3.jpeg"
-            height="100px" />
-
-          <CaixaCliente 
-            Imagem="Cliente4.svg" 
-            height="95px"/>
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="secao-servicos fundo-grade">
+    <div class="container-site">
+      <div class="cabecalho-servicos">
+        <div class="titulos-servicos">
+          <span class="rotulo-secao rotulo-amarelo"> Serviços </span>
+          <h2 class="titulo-secao"> Do primeiro orçamento à operação em plena carga. </h2>
+        </div>
+        <p class="apoio-servicos"> Toque em um serviço para falar direto com a equipe pelo WhatsApp. </p>
       </div>
-      
-      <!-- SERVIÇOS -->
-      <SubTituloPagina Texto="Serviços" />
 
-      <div class="main-servico"> 
-        <CaixaServico 
-          Imagem="Servico1.jpg"
+      <div class="main-servico">
+        <CaixaServico
+          Numero="01"
+          Imagem="servicos/orcamento.svg"
           Texto="Nossa equipe faz visita no local e levantamento dos pontos importantes para um orçamento preciso."
-          Titulo="ORÇAMENTO E PROPOSTA"
+          Titulo="Orçamento e proposta"
           TextoWhatsApp="Olá gostaria de saber mais sobre Orçamento e Proposta" />
 
-        <CaixaServico 
-          Imagem="Servico2.png"
-          Texto="Projetos elétricos, fotovoltaicos, incendio e pânico conforme as normativas de segurança."
-          Titulo="ELABORAÇÃO DE PROJETOS"
+        <CaixaServico
+          Numero="02"
+          Imagem="servicos/projetos.svg"
+          Texto="Projetos elétricos, fotovoltaicos, de incêndio e pânico, conforme as normativas de segurança."
+          Titulo="Elaboração de projetos"
           TextoWhatsApp="Olá gostaria de saber mais sobre Elaboração de Projetos" />
 
-        <CaixaServico 
-          Imagem="Servico3.jpg"
-          Texto="Instalaçoes e montagens eletricas e e automação industrial, predial, comercial e residencial."
-          Titulo="EXECUÇÃO DE PROJETOS"
+        <CaixaServico
+          Numero="03"
+          Imagem="servicos/execucao.svg"
+          Texto="Instalações e montagens elétricas e de automação industrial, predial, comercial e residencial."
+          Titulo="Execução de projetos"
           TextoWhatsApp="Olá gostaria de saber mais sobre Execução de projetos" />
 
-        <CaixaServico 
-          Imagem="Servico4.jpg"
-          Texto="Desenvolvimento de sistemas de controle e automação personalizados."
-          Titulo="AUTOMAÇÃO"
+        <CaixaServico
+          Numero="04"
+          Imagem="servicos/automacao.svg"
+          Texto="Sistemas de controle e automação personalizados, da indústria à casa inteligente: iluminação, climatização e segurança residencial."
+          Titulo="Automação"
           TextoWhatsApp="Olá gostaria de saber mais sobre Automação" />
 
-        <CaixaServico 
-          Imagem="Servico5.jpg"
+        <CaixaServico
+          Numero="05"
+          Imagem="servicos/solar.svg"
           Texto="Deixe o sol pagar sua conta de energia! Faça um orçamento conosco."
-          Titulo="ENERGIA SOLAR"
+          Titulo="Energia solar"
           TextoWhatsApp="Olá gostaria de saber mais sobre Energia Solar" />
 
-        <CaixaServico 
-          Imagem="Servico6.jpg"
+        <CaixaServico
+          Numero="06"
+          Imagem="servicos/startup.svg"
           Texto="Planejamento para comissionamento, start-up e operação assistida de todo o sistema."
-          Titulo="COMISSIONAMENTO E START-UP"
+          Titulo="Comissionamento e start-up"
           TextoWhatsApp="Olá gostaria de saber mais sobre Comissionamento e Start-up" />
       </div>
-      
-      <TextoCentralizado 
-        Texto1=""
-        Texto2="Procura alguma solução ou precisa de um orçamento?"
-        Texto3="Entre em contato conosco." />
+    </div>
+  </section>
 
-        
-      <!-- CONTATOS -->
-      <SubTituloPagina Texto="Contatos" />
+  <!-- SIMULADOR DE ECONOMIA SOLAR -->
+  <SimuladorSolar />
 
-      <ContatoIndex 
+  <!-- AVALIAÇÕES DO GOOGLE -->
+  <AvaliacoesGoogle />
+
+  <!-- CHAMADA PARA ORÇAMENTO -->
+  <ChamadaOrcamento
+    Titulo="Procura alguma solução ou precisa de um orçamento?"
+    SubTitulo="Entre em contato conosco."
+    TextoWhatsApp="Olá, Gostaria de fazer um orçamento" />
+
+  <!-- CONTATOS -->
+  <section class="module content">
+    <div class="container-site">
+      <ContatoIndex
         TelefonePrimario=""
         TelefoneSecundario="(67) 99987-1739"
         TextoWhatsApp="Preciso de um eletricista!"
-        Logradouro="Rua 31 de março, 1600 - Centro"
+        Logradouro="R. Vinte de Setembro - Rincão Bonito"
         Cidade="Bonito - MS"
         Cep="79290-000"
         Pais="Brasil"
         DiasAtendimento="Segunda à Domingo"
         HorasAtendimento="Atendimento 24 horas" />
-        
     </div>
   </section>
 
-  <WhatsappFlutuante TextoWhatsApp="Preciso de um eletricista!" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ImagemParallax from '../../components/ImagemParallax.vue';
+import HeroPrincipal from '@/components/HeroPrincipal.vue';
+import FaixaNumeros from '@/components/FaixaNumeros.vue';
 import ContatoIndex from '../Contato/ContatoIndex.vue';
 import CaixaServico from '@/components/CaixaServico.vue';
-import SubTituloPagina from '@/components/SubTituloPagina.vue';
-import WhatsappFlutuante from '@/components/WhatsappFlutuante.vue';
-import TextoCentralizado from '@/components/TextoCentralizado.vue';
+import ChamadaOrcamento from '@/components/ChamadaOrcamento.vue';
 import SobreEmpresa from '@/components/SobreEmpresa.vue';
 import CaixaCliente from '@/components/CaixaCliente.vue';
-import SubTituloLinha from '@/components/SubTituloLinha.vue';
+import AvaliacoesGoogle from '@/components/AvaliacoesGoogle.vue';
+import SimuladorSolar from '@/components/SimuladorSolar.vue';
 
 export default defineComponent({
   name: 'HomeIndex',
   components:{
-    ImagemParallax,
+    HeroPrincipal,
+    FaixaNumeros,
     ContatoIndex,
     CaixaServico,
-    SubTituloPagina,
-    WhatsappFlutuante,
-    TextoCentralizado,
+    ChamadaOrcamento,
     SobreEmpresa,
     CaixaCliente,
-    SubTituloLinha
+    AvaliacoesGoogle,
+    SimuladorSolar
 }
 });
 
@@ -138,28 +166,89 @@ export default defineComponent({
 
 <style scoped>
 
-.container-module {
-  width: 100%;
-  max-width: 70%;
-  margin: 0 auto;
+.secao-clientes {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 48px 0 8px;
 }
 
-.main-servico{
-  display:flex;
-  gap: 5em 3em;
+.container-images {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.secao-servicos {
+  background-color: var(--cor-fundo);
+  border-top: 1px solid var(--cor-linha);
+  border-bottom: 1px solid var(--cor-linha);
+  padding: 96px 0;
+  scroll-margin-top: 84px;
+}
+
+.cabecalho-servicos {
+  display: flex;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
 }
 
-.container-images{
-    display: flex;
-    gap: 3em 4em;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.titulos-servicos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 640px;
 }
 
-.w-100{
-    width: 100%;
+.rotulo-amarelo {
+  color: var(--cor-destaque-texto);
+}
+
+.apoio-servicos {
+  margin: 0;
+  max-width: 360px;
+  color: var(--cor-texto-suave);
+  font-size: 16px;
+}
+
+.main-servico {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 1250px) {
+  .main-servico {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .container-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .secao-servicos {
+    padding: 56px 0;
+    scroll-margin-top: 68px;
+  }
+
+  .cabecalho-servicos {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-servico {
+    grid-template-columns: 1fr;
+  }
+
+  .container-images {
+    gap: 12px;
+  }
 }
 
 </style>

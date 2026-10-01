@@ -1,47 +1,74 @@
-<!DOCTYPE html>
-<html lang="">
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="LimaTec — Elétrica, Automação e Energia Solar em Bonito/MS. Industrial, rural, comercial e residencial. Atendimento 24 horas.">
+
+    <meta name="theme-color" content="#141213">
 
     <link rel="icon" href="<%= BASE_URL %>icon.svg">
+    <link rel="canonical" href="https://limatecms.com/">
+
+    <!-- Prévia ao compartilhar o link (WhatsApp, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://limatecms.com/">
+    <meta property="og:title" content="LimaTec — Elétrica, Automação e Energia Solar">
+    <meta property="og:description" content="Do projeto ao start-up: elétrica, automação e energia solar em Bonito/MS. Mais de 500 obras pelo Brasil. Atendimento 24 horas.">
+    <meta property="og:image" content="https://limatecms.com/og.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="LimaTec">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LimaTec — Elétrica, Automação e Energia Solar">
+    <meta name="twitter:description" content="Do projeto ao start-up: elétrica, automação e energia solar em Bonito/MS. Atendimento 24 horas.">
+    <meta name="twitter:image" content="https://limatecms.com/og.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     <title> LimaTec - Elétrica - Automação - Energia Solar </title>
 
-    <style>
-
-      .modo-dark {
-        background-color: #373435 !important;
-        color: #d9d9d9 !important;
-        transition: 1s !important;
-      }
-
-      .color-grey{
-        color: #d9d9d9 !important;
-      }
-
-    </style>
+    <!-- Dados estruturados para a busca local do Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "name": "LimaTec - Elétrica - Automação - Energia Solar",
+      "url": "https://limatecms.com/",
+      "image": "https://limatecms.com/og.jpg",
+      "telephone": "+55-67-99987-1739",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Vinte de Setembro - Rincão Bonito",
+        "addressLocality": "Bonito",
+        "addressRegion": "MS",
+        "postalCode": "79290-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -21.123542,
+        "longitude": -56.488052
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.facebook.com/limatecbonitoms/",
+        "https://www.instagram.com/limatec_bonito_ms/"
+      ],
+      "areaServed": "Brasil",
+      "foundingDate": "2010"
+    }
+    </script>
   </head>
 
   <body>
-    <div id="app"></div> 
+    <div id="app"></div>
   </body>
-  
 </html>
-
-<script>
-
-function onScrollChange() {
-  if (window.scrollY > 0) {
-    document.getElementsByClassName("main-menu")[0].classList.add("fundo-branco");
-    document.getElementsByClassName("texto-logo")[0].classList.add("color-ckm");
-  } else {
-    document.getElementsByClassName("main-menu")[0].classList.remove("fundo-branco");
-    document.getElementsByClassName("texto-logo")[0].classList.remove("color-ckm");
-  }
-}
-
-document.addEventListener('scroll', onScrollChange);
-
-</script>

@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lima-tec",
+  "compatibility_date": "2026-10-01",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "dist"
+  },
+  "routes": [
+    { "pattern": "limatecms.com", "custom_domain": true },
+    { "pattern": "www.limatecms.com", "custom_domain": true }
+  ]
+}
