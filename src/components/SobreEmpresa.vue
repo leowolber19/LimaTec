@@ -57,7 +57,7 @@ export default defineComponent({
 <style scoped>
 
 .main-sobre {
-    padding: 56px 0 96px;
+    padding: 72px 0 128px;
     scroll-margin-top: 84px;
 }
 

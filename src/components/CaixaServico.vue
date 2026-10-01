@@ -1,6 +1,6 @@
 <template>
     <a class="container-servico" :href="linkWhatsApp(TextoWhatsApp)" target="_blank" rel="noopener"
-        @click="registrarClique('Cartões de serviço')">
+        @click="registrarClique('Serviços')">
         <div class="moldura-imagem">
             <img :src="require(`../assets/${Imagem}`)" :alt="`Ilustração: ${Titulo}`" class="imagem-servico" loading="lazy">
         </div>
@@ -8,10 +8,6 @@
             <span class="numero-servico"> {{ Numero }} </span>
             <h3 class="paragrafo-titulo"> {{ Titulo }} </h3>
             <p class="paragrafo-texto"> {{ Texto }} </p>
-            <span class="saiba-mais">
-                Saiba mais
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
         </div>
     </a>
 </template>
@@ -116,20 +112,6 @@
     line-height: 1.6;
     color: var(--cor-texto-suave);
     flex-grow: 1;
-}
-
-.saiba-mais {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding-top: 12px;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--cor-texto);
-}
-
-.saiba-mais svg {
-    color: var(--cor-destaque-texto);
 }
 
 </style>

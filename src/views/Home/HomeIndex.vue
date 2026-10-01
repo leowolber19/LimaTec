@@ -59,9 +59,6 @@
   <!-- SIMULADOR DE ECONOMIA SOLAR -->
   <SimuladorSolar />
 
-  <!-- AVALIAÇÕES DO GOOGLE -->
-  <AvaliacoesGoogle />
-
   <!-- CHAMADA PARA ORÇAMENTO (textos vêm do painel) -->
   <ChamadaOrcamento
     :Titulo="conteudo.chamada.titulo"
@@ -83,6 +80,9 @@
         :HorasAtendimento="conteudo.contato.horas" />
     </div>
   </section>
+
+  <!-- AVALIAÇÕES DO GOOGLE (fecham a página) -->
+  <AvaliacoesGoogle />
 
 </template>
 
@@ -139,7 +139,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 48px 0 8px;
+  padding: 72px 0 16px;
 }
 
 .container-images {
@@ -152,7 +152,7 @@ export default defineComponent({
   background-color: var(--cor-fundo);
   border-top: 1px solid var(--cor-linha);
   border-bottom: 1px solid var(--cor-linha);
-  padding: 96px 0;
+  padding: 128px 0;
   scroll-margin-top: 84px;
 }
 

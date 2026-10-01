@@ -50,7 +50,7 @@ export default defineComponent({
 
 .main-avaliacoes {
     background: var(--cor-fundo-2);
-    padding: 96px 0;
+    padding: 128px 0;
 }
 
 .cabecalho-avaliacoes {

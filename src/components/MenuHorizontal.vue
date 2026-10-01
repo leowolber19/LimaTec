@@ -100,7 +100,7 @@ export default defineComponent({
   },
   methods: {
     abrirWhatsApp() {
-      abreWhatsApp(this.TextoWhatsApp, 'Menu — Entrar em contato');
+      abreWhatsApp(this.TextoWhatsApp, 'Menu');
     },
     irPara(id: string) {
       this.menuAberto = false;

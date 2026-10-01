@@ -94,7 +94,7 @@ export default defineComponent({
     },
     methods: {
         abrirWhatsApp() {
-            abreWhatsApp(this.TextoWhatsApp, 'Fazer um orçamento (topo)');
+            abreWhatsApp(this.TextoWhatsApp, 'Orçamento (topo)');
         },
         rolarPara,
         urlDaImagem,

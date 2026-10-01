@@ -103,7 +103,7 @@ export default defineComponent({
   flex-wrap: wrap;
   gap: 48px;
   align-items: stretch;
-  padding: 96px 0;
+  padding: 128px 0;
   scroll-margin-top: 84px;
 }
 

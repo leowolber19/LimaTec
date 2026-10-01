@@ -90,7 +90,7 @@ export default defineComponent({
 
 .main-simulador {
     background: var(--cor-fundo);
-    padding: 96px 0;
+    padding: 128px 0;
     scroll-margin-top: 64px;
 }
 

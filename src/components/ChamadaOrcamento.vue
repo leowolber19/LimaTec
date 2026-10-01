@@ -35,7 +35,7 @@ export default defineComponent({
     },
     methods: {
         abrirWhatsApp() {
-            abreWhatsApp(this.TextoWhatsApp, 'Faixa de orçamento');
+            abreWhatsApp(this.TextoWhatsApp, 'Faixa amarela');
         }
     }
 });
