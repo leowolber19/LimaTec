@@ -55,6 +55,14 @@ Vue 3 + TypeScript (Options API) via Vue CLI. Produção: Cloudflare Workers (st
    avaliações do Google são reais (não inventar novas).
 4. Deploy em produção só quando o usuário pedir (`/deploy`).
 
+## Futuro app administrativo (ADR-0008)
+
+Quando for desenvolvido o app de administração para o cliente LimaTec: **repo separado**,
+publicado em **`app.limatecms.com`** (mesma conta Cloudflare), stack 100% Cloudflare free —
+front Vue (static assets) + API Worker em **TypeScript com Hono** + banco **D1** (KV/R2/Cron
+conforme a necessidade; Postgres só via Hyperdrive+Neon se um caso real exigir). **Não usar
+.NET nesse app** — decisão registrada no ADR-0008; ler antes de iniciar.
+
 ## Hospedagem (ADR-0007)
 
 Domínio na Hostinger → nameservers Cloudflare → Worker `lima-tec` (static assets de `dist/`) com

@@ -14,3 +14,4 @@ Formato: Contexto → Decisão → Consequências. Status: Aceita | Substituída
 | [0005](0005-whatsapp-canal-unico-de-conversao.md) | WhatsApp como canal único de conversão |
 | [0006](0006-navegacao-one-page-sem-hash.md) | Navegação one-page por scroll, sem hash na URL |
 | [0007](0007-hospedagem-cloudflare-workers.md) | Hospedagem na Cloudflare (Workers static assets) |
+| [0008](0008-futuro-app-admin-stack-cloudflare.md) | Futuro app admin: stack 100% Cloudflare em app.limatecms.com |
