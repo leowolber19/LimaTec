@@ -19,8 +19,14 @@ Quando o app nascer, ele será 100% Cloudflare, no free tier, publicado em **`ap
 - **API:** Cloudflare Worker em **TypeScript com Hono**.
 - **Banco:** **D1** (SQL/SQLite serverless). Se um caso real exigir Postgres, usar Hyperdrive +
   Neon a partir do Worker — nunca mover a API para fora da Cloudflare por causa disso.
+- **Autenticação (requisito do Leonardo, 01/10/2026):** o app TERÁ tela de login com usuário e
+  senha própria (não Cloudflare Access, que exige conta externa — o cliente quer login simples).
+  Implementação na stack: tabela `usuarios` no D1 com senha em hash **PBKDF2 via WebCrypto**
+  (Workers não rodam bcrypt nativo; alternativa pronta: biblioteca **better-auth**, que suporta
+  Hono + D1); sessão em cookie **HttpOnly/Secure/SameSite** com registro em KV ou D1 e expiração;
+  rate-limit nas tentativas de login; toda rota da API protegida por middleware de sessão.
 - **Apoio conforme a necessidade:** KV (sessão/cache), R2 (upload de arquivos), Cron triggers
-  (rotinas agendadas), Cloudflare Access se precisar restringir o acesso ao painel.
+  (rotinas agendadas).
 - **Deploy:** `wrangler deploy` na mesma conta Cloudflare do site (login do Leonardo via
   `wrangler login`); criar um comando `/deploy` próprio no novo repo.
 
