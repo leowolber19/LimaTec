@@ -35,6 +35,8 @@ import BarraAcaoMobile from './components/BarraAcaoMobile.vue';
 import BotaoTopo from './components/BotaoTopo.vue';
 import WhatsappFlutuante from './components/WhatsappFlutuante.vue';
 import { limparUrl } from './uteis/navegacao';
+import { carregarConteudo } from './uteis/conteudo';
+import { registrarVisita } from './uteis/metricas';
 
 const CHAVE_TEMA = 'limatec-tema';
 
@@ -61,10 +63,13 @@ export default defineComponent({
     }
     this.temaEscuro = salvo ? salvo === 'escuro' : true;
     this.aplicarTema();
+    // busca o conteúdo publicado pelo painel (fallback: textos embutidos)
+    carregarConteudo();
   },
   mounted() {
     // tira o #hash e o ?i=1 (anexado pela hospedagem) da barra de endereço
     limparUrl();
+    registrarVisita();
   },
   methods: {
     alternarTema() {

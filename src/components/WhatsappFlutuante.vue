@@ -107,12 +107,12 @@
             if (!texto) {
                 return;
             }
-            abreWhatsApp(texto);
+            abreWhatsApp(texto, 'Chat do site');
             this.mensagem = "";
             this.aberto = false;
         },
         enviarPronta(texto: string) {
-            abreWhatsApp(texto);
+            abreWhatsApp(texto, 'Chat do site');
             this.aberto = false;
         }
     }

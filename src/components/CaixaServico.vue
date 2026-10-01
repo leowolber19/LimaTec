@@ -1,5 +1,6 @@
 <template>
-    <a class="container-servico" :href="linkWhatsApp(TextoWhatsApp)" target="_blank" rel="noopener">
+    <a class="container-servico" :href="linkWhatsApp(TextoWhatsApp)" target="_blank" rel="noopener"
+        @click="registrarClique('Cartões de serviço')">
         <div class="moldura-imagem">
             <img :src="require(`../assets/${Imagem}`)" :alt="`Ilustração: ${Titulo}`" class="imagem-servico" loading="lazy">
         </div>
@@ -18,6 +19,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { linkWhatsApp } from '@/uteis/contato';
+  import { registrarClique } from '@/uteis/metricas';
 
   export default defineComponent({
     name: 'CaixaServico',
@@ -44,7 +46,8 @@
         }
     },
     methods: {
-        linkWhatsApp
+        linkWhatsApp,
+        registrarClique
     }
   });
 </script>

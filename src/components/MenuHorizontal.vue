@@ -97,7 +97,7 @@ export default defineComponent({
   },
   methods: {
     abrirWhatsApp() {
-      abreWhatsApp(this.TextoWhatsApp);
+      abreWhatsApp(this.TextoWhatsApp, 'Menu — Entrar em contato');
     },
     irPara(id: string) {
       this.menuAberto = false;

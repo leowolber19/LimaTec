@@ -63,7 +63,8 @@ front Vue (static assets) + API Worker em **TypeScript com Hono** + banco **D1**
 conforme a necessidade; Postgres só via Hyperdrive+Neon se um caso real exigir). **Não usar
 .NET nesse app** — decisão registrada no ADR-0008; ler antes de iniciar.
 **Requisito:** tela de login com usuário e senha (hash PBKDF2/WebCrypto no D1, sessão em cookie
-HttpOnly — detalhes no ADR-0008).
+HttpOnly — detalhes no ADR-0008). **Sem nenhuma menção à Moovefy** na interface — a marca visível
+é só LimaTec.
 
 ## Hospedagem (ADR-0007)
 

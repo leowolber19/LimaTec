@@ -1,9 +1,8 @@
 <template>
 
-  <!-- HERO PRINCIPAL (carrossel de obras) -->
+  <!-- HERO PRINCIPAL (carrossel de obras; textos vêm do painel) -->
   <HeroPrincipal
-    TextoWhatsApp="Olá, Gostaria de fazer um orçamento"
-    SubTitulo="Do projeto ao start-up, para os setores industrial, rural, comercial e residencial." />
+    TextoWhatsApp="Olá, Gostaria de fazer um orçamento" />
 
   <!-- FAIXA DE NÚMEROS -->
   <FaixaNumeros />
@@ -38,12 +37,12 @@
         </div>
       </div>
 
-      <!-- EMPRESA -->
+      <!-- EMPRESA (textos vêm do painel) -->
       <SobreEmpresa
         TituloPrimeiroParagrafo="SOBRE NÓS"
-        TextoPrimerioPagrafo="Desde 2010 na execução de instalações elétricas e automações industriais, a LimaTec firmou sua marca com mais de 500 obras por todo o Brasil, atuando nos setores industrial, rural, comercial e fotovoltaico."
-        TituloSegundoParagrafo="ÁREAS ATUANTES"
-        TextoSegundoPagrafo="Construímos usinas fotovoltaicas, sistemas de controle e automação industrial e soluções para data centers e telecomunicações — instalações bem executadas, com segurança e sem comprometer o andamento da obra."
+        :Titulo="conteudo.sobre.titulo"
+        :TextoPrimerioPagrafo="conteudo.sobre.paragrafo1"
+        :TextoSegundoPagrafo="conteudo.sobre.paragrafo2"
         />
     </div>
   </section>
@@ -59,48 +58,14 @@
         <p class="apoio-servicos"> Toque em um serviço para falar direto com a equipe pelo WhatsApp. </p>
       </div>
 
+      <!-- textos vêm do painel; as ilustrações são fixas por posição -->
       <div class="main-servico">
-        <CaixaServico
-          Numero="01"
-          Imagem="servicos/orcamento.svg"
-          Texto="Nossa equipe faz visita no local e levantamento dos pontos importantes para um orçamento preciso."
-          Titulo="Orçamento e proposta"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Orçamento e Proposta" />
-
-        <CaixaServico
-          Numero="02"
-          Imagem="servicos/projetos.svg"
-          Texto="Projetos elétricos, fotovoltaicos, de incêndio e pânico, conforme as normativas de segurança."
-          Titulo="Elaboração de projetos"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Elaboração de Projetos" />
-
-        <CaixaServico
-          Numero="03"
-          Imagem="servicos/execucao.svg"
-          Texto="Instalações e montagens elétricas e de automação industrial, predial, comercial e residencial."
-          Titulo="Execução de projetos"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Execução de projetos" />
-
-        <CaixaServico
-          Numero="04"
-          Imagem="servicos/automacao.svg"
-          Texto="Sistemas de controle e automação personalizados, da indústria à casa inteligente: iluminação, climatização e segurança residencial."
-          Titulo="Automação"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Automação" />
-
-        <CaixaServico
-          Numero="05"
-          Imagem="servicos/solar.svg"
-          Texto="Deixe o sol pagar sua conta de energia! Faça um orçamento conosco."
-          Titulo="Energia solar"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Energia Solar" />
-
-        <CaixaServico
-          Numero="06"
-          Imagem="servicos/startup.svg"
-          Texto="Planejamento para comissionamento, start-up e operação assistida de todo o sistema."
-          Titulo="Comissionamento e start-up"
-          TextoWhatsApp="Olá gostaria de saber mais sobre Comissionamento e Start-up" />
+        <CaixaServico v-for="(servico, i) in conteudo.servicos" :key="servico.numero"
+          :Numero="servico.numero"
+          :Imagem="imagensServicos[i % imagensServicos.length]"
+          :Texto="servico.texto"
+          :Titulo="servico.titulo"
+          :TextoWhatsApp="servico.whatsapp" />
       </div>
     </div>
   </section>
@@ -111,10 +76,10 @@
   <!-- AVALIAÇÕES DO GOOGLE -->
   <AvaliacoesGoogle />
 
-  <!-- CHAMADA PARA ORÇAMENTO -->
+  <!-- CHAMADA PARA ORÇAMENTO (textos vêm do painel) -->
   <ChamadaOrcamento
-    Titulo="Procura alguma solução ou precisa de um orçamento?"
-    SubTitulo="Entre em contato conosco."
+    :Titulo="conteudo.chamada.titulo"
+    :SubTitulo="conteudo.chamada.subtitulo"
     TextoWhatsApp="Olá, Gostaria de fazer um orçamento" />
 
   <!-- CONTATOS -->
@@ -124,12 +89,12 @@
         TelefonePrimario=""
         TelefoneSecundario="(67) 99987-1739"
         TextoWhatsApp="Preciso de um eletricista!"
-        Logradouro="R. Vinte de Setembro - Rincão Bonito"
-        Cidade="Bonito - MS"
-        Cep="79290-000"
-        Pais="Brasil"
-        DiasAtendimento="Segunda à Domingo"
-        HorasAtendimento="Atendimento 24 horas" />
+        :Logradouro="conteudo.contato.logradouro"
+        :Cidade="conteudo.contato.cidade"
+        :Cep="conteudo.contato.cep"
+        :Pais="conteudo.contato.pais"
+        :DiasAtendimento="conteudo.contato.dias"
+        :HorasAtendimento="conteudo.contato.horas" />
     </div>
   </section>
 
@@ -146,6 +111,7 @@ import SobreEmpresa from '@/components/SobreEmpresa.vue';
 import CaixaCliente from '@/components/CaixaCliente.vue';
 import AvaliacoesGoogle from '@/components/AvaliacoesGoogle.vue';
 import SimuladorSolar from '@/components/SimuladorSolar.vue';
+import { conteudoSite } from '@/uteis/conteudo';
 
 export default defineComponent({
   name: 'HomeIndex',
@@ -159,7 +125,21 @@ export default defineComponent({
     CaixaCliente,
     AvaliacoesGoogle,
     SimuladorSolar
-}
+},
+  data() {
+    return {
+      conteudo: conteudoSite,
+      // ilustrações fixas dos cartões de serviço, por posição
+      imagensServicos: [
+        'servicos/orcamento.svg',
+        'servicos/projetos.svg',
+        'servicos/execucao.svg',
+        'servicos/automacao.svg',
+        'servicos/solar.svg',
+        'servicos/startup.svg'
+      ]
+    };
+  }
 });
 
 </script>

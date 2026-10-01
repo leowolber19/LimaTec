@@ -4,12 +4,12 @@
             <div class="coluna-texto">
                 <div class="selo-local">
                     <span class="ponto-amarelo"></span>
-                    Bonito · MS — atendimento 24 horas
+                    {{ conteudo.hero.selo }}
                 </div>
                 <h1 class="titulo-hero">
-                    Elétrica, automação e <span class="marcacao">energia solar.</span>
+                    {{ conteudo.hero.titulo }} <span class="marcacao">{{ conteudo.hero.tituloDestaque }}</span>
                 </h1>
-                <p class="subtitulo-hero"> {{ SubTitulo }} </p>
+                <p class="subtitulo-hero"> {{ conteudo.hero.subtitulo }} </p>
                 <div class="botoes-hero">
                     <button class="botao-pilula" @click="abrirWhatsApp()" :title="TextoWhatsApp">
                         Fazer um orçamento
@@ -24,8 +24,8 @@
                 <div class="moldura-amarela"></div>
 
                 <div class="carrossel">
-                    <img v-for="(slide, i) in slides" :key="slide.imagem"
-                        :src="require(`../assets/${slide.imagem}`)"
+                    <img v-for="(slide, i) in slides" :key="`${i}-${slide.imagem}`"
+                        :src="urlDaImagem(slide.imagem)"
                         :alt="slide.titulo"
                         class="imagem-hero"
                         :class="{ 'slide-ativo': i === indice }">
@@ -34,12 +34,11 @@
                 <transition name="troca" mode="out-in">
                     <div class="cartao-flutuante" :key="indice">
                         <div class="icone-cartao">
-                            <svg v-if="slides[indice].icone === 'sol'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141213" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
-                            <svg v-else viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141213" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4.5 13h5L10 22l8.5-11h-5z"/></svg>
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#141213" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4.5 13h5L10 22l8.5-11h-5z"/></svg>
                         </div>
                         <div class="texto-cartao">
-                            <span class="titulo-cartao"> {{ slides[indice].titulo }} </span>
-                            <span class="subtitulo-cartao"> {{ slides[indice].subtitulo }} </span>
+                            <span class="titulo-cartao"> {{ slideAtual.titulo }} </span>
+                            <span class="subtitulo-cartao"> {{ slideAtual.subtitulo }} </span>
                         </div>
                     </div>
                 </transition>
@@ -60,16 +59,13 @@
 import { defineComponent } from 'vue';
 import { abreWhatsApp } from '@/uteis/contato';
 import { rolarPara } from '@/uteis/navegacao';
+import { conteudoSite, urlDaImagem, Slide } from '@/uteis/conteudo';
 
 const INTERVALO_MS = 3500;
 
 export default defineComponent({
     name: 'HeroPrincipal',
     props: {
-        SubTitulo: {
-            type: String,
-            default: ""
-        },
         TextoWhatsApp: {
             type: String,
             default: ""
@@ -79,14 +75,16 @@ export default defineComponent({
         return {
             indice: 0,
             temporizador: 0,
-            // Por enquanto 4 fotos — adicionar aqui quando o cliente mandar mais
-            slides: [
-                { imagem: 'ImagemPrincipal.jpg', icone: 'sol', titulo: 'Usinas fotovoltaicas', subtitulo: 'Projeto, execução e start-up' },
-                { imagem: 'EmpresaSilos.jpg', icone: 'raio', titulo: 'Instalações industriais', subtitulo: 'Elétrica e automação em plena carga' },
-                { imagem: 'ObraQuadro.jpg', icone: 'raio', titulo: 'Quadros de distribuição', subtitulo: 'Montagem conforme as normas' },
-                { imagem: 'ObraEquipe.jpg', icone: 'sol', titulo: 'Equipe em campo', subtitulo: 'Atendimento 24 horas' }
-            ]
+            conteudo: conteudoSite
         };
+    },
+    computed: {
+        slides(): Slide[] {
+            return this.conteudo.hero.slides;
+        },
+        slideAtual(): Slide {
+            return this.slides[this.indice % this.slides.length] ?? this.slides[0];
+        }
     },
     mounted() {
         this.retomar();
@@ -96,11 +94,12 @@ export default defineComponent({
     },
     methods: {
         abrirWhatsApp() {
-            abreWhatsApp(this.TextoWhatsApp);
+            abreWhatsApp(this.TextoWhatsApp, 'Fazer um orçamento (topo)');
         },
         rolarPara,
+        urlDaImagem,
         avancar() {
-            this.indice = (this.indice + 1) % this.slides.length;
+            this.indice = (this.indice + 1) % Math.max(this.slides.length, 1);
         },
         irParaSlide(i: number) {
             this.indice = i;

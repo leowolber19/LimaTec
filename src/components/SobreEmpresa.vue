@@ -10,7 +10,7 @@
             </div>
             <div class="coluna-texto">
                 <span class="rotulo-secao"> {{ TituloPrimeiroParagrafo }} </span>
-                <h2 class="titulo-secao"> Solidez e confiança desde 2010. </h2>
+                <h2 class="titulo-secao"> {{ Titulo }} </h2>
                 <p class="paragrafo"> {{ TextoPrimerioPagrafo }} </p>
                 <p class="paragrafo"> {{ TextoSegundoPagrafo }} </p>
                 <div class="grade-areas">
@@ -30,6 +30,10 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'SobreEmpresa',
     props: {
+        Titulo: {
+            type: String,
+            default: "Solidez e confiança desde 2010."
+        },
         TextoPrimerioPagrafo: {
             type: String,
             default: ""

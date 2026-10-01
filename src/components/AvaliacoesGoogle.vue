@@ -33,27 +33,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { conteudoSite, Avaliacao } from '@/uteis/conteudo';
 
 export default defineComponent({
     name: 'AvaliacoesGoogle',
-    data() {
-        return {
-            // Avaliações do perfil da LimaTec no Google
-            avaliacoes: [
-                {
-                    nome: 'Leonardo Reis',
-                    texto: '“Excelente atendimento e pontualidade no prazo do serviço contratado. Fiz toda a energia solar da empresa com eles, na pessoa do Vinicius. Recomendo a todos!”'
-                },
-                {
-                    nome: 'Igor Valenzuela Leite',
-                    texto: '“O melhor da região, super recomendo. Agilidade e qualidade no serviço. Muito profissional, serviço de qualidade.”'
-                },
-                {
-                    nome: 'Marcio Neis',
-                    texto: '“Profissional qualificado, experiente, sabe o que faz e de melhor qualidade.”'
-                }
-            ]
-        };
+    computed: {
+        // Avaliações do perfil da LimaTec no Google — editáveis pelo painel
+        avaliacoes(): Avaliacao[] {
+            return conteudoSite.avaliacoes;
+        }
     }
 });
 </script>

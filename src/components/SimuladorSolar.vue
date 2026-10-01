@@ -80,7 +80,7 @@ export default defineComponent({
             return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
         },
         pedirSimulacao() {
-            abreWhatsApp(`Olá! Pago cerca de R$ ${this.conta} por mês de energia e gostaria de uma simulação de energia solar.`);
+            abreWhatsApp(`Olá! Pago cerca de R$ ${this.conta} por mês de energia e gostaria de uma simulação de energia solar.`, 'Simulador solar');
         }
     }
 });
