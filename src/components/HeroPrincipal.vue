@@ -224,6 +224,8 @@ export default defineComponent({
     height: 520px;
     border-radius: 28px;
     overflow: hidden;
+    /* fundo sólido: evita a moldura amarela "vazar" durante o crossfade das fotos */
+    background: var(--cor-fundo-2);
 }
 
 .imagem-hero {
