@@ -2,7 +2,7 @@
     <section id="empresa" class="main-sobre">
         <div class="container-sobre">
             <div class="coluna-imagem">
-                <img src="../assets/EmpresaSilos.jpg" alt="Instalação industrial em silos de armazenagem" class="imagem-sobre" loading="lazy">
+                <img src="/conteudo/silos.jpg" alt="Instalação industrial em silos de armazenagem" class="imagem-sobre" loading="lazy">
                 <div class="cartao-obras">
                     <span class="numero-obras"> +500 </span>
                     <span class="legenda-obras"> obras entregues </span>

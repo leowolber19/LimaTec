@@ -13,7 +13,7 @@
             <span class="legenda-contato"> Telefone e WhatsApp </span>
             <span class="valor-destaque"> {{ TelefoneSecundario }} </span>
           </div>
-          <a :href="TELEFONE_LINK" class="botao-pilula botao-ligar"> Ligar agora </a>
+          <a :href="telefoneHref" class="botao-pilula botao-ligar"> Ligar agora </a>
         </div>
 
         <div class="cartao-contato">
@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { TELEFONE_LINK } from '@/uteis/contato';
+import { telefoneLink } from '@/uteis/conteudo';
 
 export default defineComponent({
   name: 'ContatoIndex',
@@ -90,10 +90,8 @@ export default defineComponent({
         default: ""
     }
   },
-  data() {
-    return {
-      TELEFONE_LINK
-    };
+  computed: {
+    telefoneHref(): string { return telefoneLink(); }
   }
 });
 </script>

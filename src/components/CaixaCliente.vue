@@ -1,6 +1,6 @@
 <template>
     <div class="cartao-cliente">
-        <img :src="require(`../assets/${Imagem}`)" :style="{ maxHeight: height }" :alt="Nome" loading="lazy">
+        <img :src="Imagem" :style="{ maxHeight: height }" :alt="Nome" loading="lazy">
     </div>
 </template>
 
@@ -10,9 +10,10 @@
   export default defineComponent({
     name: 'CaixaCliente',
     props: {
+        // URL já resolvida da imagem (ver uteis/conteudo.urlDaImagem)
         Imagem: {
             type: String,
-            default: "logo.png"
+            default: ""
         },
         height: {
             type: String,

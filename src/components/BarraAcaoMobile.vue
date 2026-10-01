@@ -1,6 +1,6 @@
 <template>
     <div class="barra-acao">
-        <a :href="TELEFONE_LINK" class="botao-ligar">
+        <a :href="telefoneHref" class="botao-ligar">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFF212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
             Ligar
         </a>
@@ -13,15 +13,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { TELEFONE_LINK } from '@/uteis/contato';
+import { telefoneLink } from '@/uteis/conteudo';
 
 export default defineComponent({
     name: 'BarraAcaoMobile',
     emits: ['abrir-chat'],
-    data() {
-        return {
-            TELEFONE_LINK
-        };
+    computed: {
+        telefoneHref(): string { return telefoneLink(); }
     }
 });
 </script>

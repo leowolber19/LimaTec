@@ -1,21 +1,10 @@
 <template>
     <div class="main-numeros">
+        <!-- números vêm do painel -->
         <div class="container-site grade-numeros">
-            <div class="item-numero">
-                <span class="valor-numero"> 2010 </span>
-                <span class="legenda-numero"> Atuando desde </span>
-            </div>
-            <div class="item-numero">
-                <span class="valor-numero"> +500 </span>
-                <span class="legenda-numero"> Obras por todo o Brasil </span>
-            </div>
-            <div class="item-numero">
-                <span class="valor-numero"> 24h </span>
-                <span class="legenda-numero"> Atendimento, de segunda a domingo </span>
-            </div>
-            <div class="item-numero">
-                <span class="valor-numero"> 4 setores </span>
-                <span class="legenda-numero"> Industrial, rural, comercial e residencial </span>
+            <div class="item-numero" v-for="numero in numeros" :key="numero.legenda">
+                <span class="valor-numero"> {{ numero.valor }} </span>
+                <span class="legenda-numero"> {{ numero.legenda }} </span>
             </div>
         </div>
     </div>
@@ -23,9 +12,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { conteudoSite, Numero } from '@/uteis/conteudo';
 
 export default defineComponent({
-    name: 'FaixaNumeros'
+    name: 'FaixaNumeros',
+    computed: {
+        numeros(): Numero[] {
+            return conteudoSite.numeros;
+        }
+    }
 });
 </script>
 

@@ -14,26 +14,12 @@
       <!-- CLIENTES -->
       <div class="secao-clientes">
         <span class="rotulo-secao"> Quem confia na LimaTec </span>
+        <!-- logos vêm do painel -->
         <div class="container-images">
-            <CaixaCliente
-              Imagem="Cliente1.jpeg"
-              Nome="Laudejá Agronegócio"
-              height="78px" />
-
-            <CaixaCliente
-              Imagem="Cliente2.jpeg"
-              Nome="Vale Urucum"
-              height="78px" />
-
-            <CaixaCliente
-              Imagem="Cliente3.jpeg"
-              Nome="Curicaca Armazéns Gerais"
-              height="80px" />
-
-            <CaixaCliente
-              Imagem="Cliente4.svg"
-              Nome="Cliente LimaTec"
-              height="62px" />
+            <CaixaCliente v-for="cliente in conteudo.clientes" :key="cliente.imagem + cliente.nome"
+              :Imagem="urlDaImagem(cliente.imagem)"
+              :Nome="cliente.nome"
+              :height="`${cliente.altura ?? 80}px`" />
         </div>
       </div>
 
@@ -53,9 +39,9 @@
       <div class="cabecalho-servicos">
         <div class="titulos-servicos">
           <span class="rotulo-secao rotulo-amarelo"> Serviços </span>
-          <h2 class="titulo-secao"> Do primeiro orçamento à operação em plena carga. </h2>
+          <h2 class="titulo-secao"> {{ conteudo.servicosSecao.titulo }} </h2>
         </div>
-        <p class="apoio-servicos"> Toque em um serviço para falar direto com a equipe pelo WhatsApp. </p>
+        <p class="apoio-servicos"> {{ conteudo.servicosSecao.apoio }} </p>
       </div>
 
       <!-- textos vêm do painel; as ilustrações são fixas por posição -->
@@ -87,7 +73,7 @@
     <div class="container-site">
       <ContatoIndex
         TelefonePrimario=""
-        TelefoneSecundario="(67) 99987-1739"
+        :TelefoneSecundario="conteudo.contato.telefone"
         TextoWhatsApp="Preciso de um eletricista!"
         :Logradouro="conteudo.contato.logradouro"
         :Cidade="conteudo.contato.cidade"
@@ -111,7 +97,7 @@ import SobreEmpresa from '@/components/SobreEmpresa.vue';
 import CaixaCliente from '@/components/CaixaCliente.vue';
 import AvaliacoesGoogle from '@/components/AvaliacoesGoogle.vue';
 import SimuladorSolar from '@/components/SimuladorSolar.vue';
-import { conteudoSite } from '@/uteis/conteudo';
+import { conteudoSite, urlDaImagem } from '@/uteis/conteudo';
 
 export default defineComponent({
   name: 'HomeIndex',
@@ -139,6 +125,9 @@ export default defineComponent({
         'servicos/startup.svg'
       ]
     };
+  },
+  methods: {
+    urlDaImagem
   }
 });
 

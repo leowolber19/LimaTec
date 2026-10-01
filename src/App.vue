@@ -14,7 +14,7 @@
     LinkLinkedin="https://www.linkedin.com/in/viniciusdeol/"
     LinkFacebook="https://www.facebook.com/limatecbonitoms/"
     LinkInstagram="https://www.instagram.com/limatec_bonito_ms/"
-    Titulo="©2026 LimaTec - Elétrica / Automação / Energia Solar" />
+    :Titulo="copyright" />
 
   <!-- CHAT DO WHATSAPP (flutuante no desktop; no celular abre pela barra fixa) -->
   <WhatsappFlutuante ref="chat" TextoWhatsApp="Preciso de um eletricista!" />
@@ -35,7 +35,7 @@ import BarraAcaoMobile from './components/BarraAcaoMobile.vue';
 import BotaoTopo from './components/BotaoTopo.vue';
 import WhatsappFlutuante from './components/WhatsappFlutuante.vue';
 import { limparUrl } from './uteis/navegacao';
-import { carregarConteudo } from './uteis/conteudo';
+import { carregarConteudo, conteudoSite } from './uteis/conteudo';
 import { registrarVisita } from './uteis/metricas';
 
 const CHAVE_TEMA = 'limatec-tema';
@@ -53,6 +53,11 @@ export default defineComponent({
     return {
       temaEscuro: true
     };
+  },
+  computed: {
+    copyright(): string {
+      return conteudoSite.rodape.copyright;
+    }
   },
   created() {
     let salvo = null;

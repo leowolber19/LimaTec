@@ -19,9 +19,9 @@
       </nav>
 
       <div class="acoes-menu">
-        <a class="telefone-menu" :href="TELEFONE_LINK">
+        <a class="telefone-menu" :href="telefoneHref">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-          {{ TELEFONE_FORMATADO }}
+          {{ telefone }}
         </a>
 
         <button class="botao-tema" @click="$emit('alternar-tema')"
@@ -48,7 +48,7 @@
       <a href="#servicos" @click.prevent="irPara('servicos')"> Serviços </a>
       <a href="#orcamento" @click.prevent="irPara('orcamento')"> Orçamento </a>
       <a href="#contato" @click.prevent="irPara('contato')"> Contato </a>
-      <a :href="TELEFONE_LINK" @click="menuAberto = false" class="telefone-celular"> Ligar: {{ TELEFONE_FORMATADO }} </a>
+      <a :href="telefoneHref" @click="menuAberto = false" class="telefone-celular"> Ligar: {{ telefone }} </a>
     </nav>
   </header>
 </template>
@@ -56,8 +56,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import LogoLimaTec from './LogoLimaTec.vue';
-import { abreWhatsApp, TELEFONE_FORMATADO, TELEFONE_LINK } from '@/uteis/contato';
+import { abreWhatsApp } from '@/uteis/contato';
 import { rolarPara } from '@/uteis/navegacao';
+import { conteudoSite, telefoneLink } from '@/uteis/conteudo';
 
 const SECOES = ['empresa', 'servicos', 'orcamento', 'contato'];
 
@@ -83,10 +84,12 @@ export default defineComponent({
       rolado: false,
       escondido: false,
       secaoAtiva: '',
-      ultimoY: 0,
-      TELEFONE_FORMATADO,
-      TELEFONE_LINK
+      ultimoY: 0
     };
+  },
+  computed: {
+    telefone(): string { return conteudoSite.contato.telefone; },
+    telefoneHref(): string { return telefoneLink(); }
   },
   mounted() {
     window.addEventListener('scroll', this.aoRolar, { passive: true });

@@ -7,6 +7,8 @@ const URL_PAINEL = 'https://app.limatecms.com';
 export interface Slide { imagem: string; titulo: string; subtitulo: string; }
 export interface Servico { numero: string; titulo: string; texto: string; whatsapp: string; }
 export interface Avaliacao { nome: string; texto: string; }
+export interface Cliente { imagem: string; nome: string; altura?: number; }
+export interface Numero { valor: string; legenda: string; }
 
 export const conteudoSite = reactive({
     hero: {
@@ -21,6 +23,12 @@ export const conteudoSite = reactive({
             { imagem: 'equipe', titulo: 'Equipe em campo', subtitulo: 'Atendimento 24 horas' }
         ] as Slide[]
     },
+    numeros: [
+        { valor: '2010', legenda: 'Atuando desde' },
+        { valor: '+500', legenda: 'Obras por todo o Brasil' },
+        { valor: '24h', legenda: 'Atendimento, de segunda a domingo' },
+        { valor: '4 setores', legenda: 'Industrial, rural, comercial e residencial' }
+    ] as Numero[],
     sobre: {
         titulo: 'Solidez e confiança desde 2010.',
         paragrafo1: 'Desde 2010 na execução de instalações elétricas e automações industriais, a LimaTec firmou sua marca com mais de 500 obras por todo o Brasil, atuando nos setores industrial, rural, comercial e fotovoltaico.',
@@ -34,31 +42,54 @@ export const conteudoSite = reactive({
         { numero: '05', titulo: 'Energia solar', texto: 'Deixe o sol pagar sua conta de energia! Faça um orçamento conosco.', whatsapp: 'Olá gostaria de saber mais sobre Energia Solar' },
         { numero: '06', titulo: 'Comissionamento e start-up', texto: 'Planejamento para comissionamento, start-up e operação assistida de todo o sistema.', whatsapp: 'Olá gostaria de saber mais sobre Comissionamento e Start-up' }
     ] as Servico[],
+    clientes: [
+        { imagem: 'cliente1', nome: 'Laudejá Agronegócio', altura: 78 },
+        { imagem: 'cliente2', nome: 'Vale Urucum', altura: 78 },
+        { imagem: 'cliente3', nome: 'Curicaca Armazéns Gerais', altura: 80 },
+        { imagem: 'cliente4', nome: 'Cliente LimaTec', altura: 62 }
+    ] as Cliente[],
     avaliacoes: [
         { nome: 'Leonardo Reis', texto: '“Excelente atendimento e pontualidade no prazo do serviço contratado. Fiz toda a energia solar da empresa com eles, na pessoa do Vinicius. Recomendo a todos!”' },
         { nome: 'Igor Valenzuela Leite', texto: '“O melhor da região, super recomendo. Agilidade e qualidade no serviço. Muito profissional, serviço de qualidade.”' },
         { nome: 'Marcio Neis', texto: '“Profissional qualificado, experiente, sabe o que faz e de melhor qualidade.”' }
     ] as Avaliacao[],
+    servicosSecao: {
+        titulo: 'Do primeiro orçamento à operação em plena carga.',
+        apoio: 'Toque em um serviço para falar direto com a equipe pelo WhatsApp.'
+    },
     chamada: {
         titulo: 'Procura alguma solução ou precisa de um orçamento?',
         subtitulo: 'Entre em contato conosco.'
     },
     contato: {
+        telefone: '(67) 99987-1739',
+        whatsapp: '5567999871739',
         logradouro: 'R. Vinte de Setembro - Rincão Bonito',
         cidade: 'Bonito - MS',
         cep: '79290-000',
         pais: 'Brasil',
         dias: 'Segunda à Domingo',
         horas: 'Atendimento 24 horas'
+    },
+    rodape: {
+        copyright: '©2026 LimaTec - Elétrica / Automação / Energia Solar'
     }
 });
 
-// fotos embutidas no site, referenciadas por chave no conteúdo
+export function telefoneLink(): string {
+    return `tel:+${conteudoSite.contato.whatsapp.replace(/\D/g, '')}`;
+}
+
+// fotos padrão do site, servidas em /conteudo/* (URLs estáveis — o painel usa as mesmas)
 const IMAGENS_EMBUTIDAS: Record<string, string> = {
-    usina: require('@/assets/ImagemPrincipal.jpg'),
-    silos: require('@/assets/EmpresaSilos.jpg'),
-    quadro: require('@/assets/ObraQuadro.jpg'),
-    equipe: require('@/assets/ObraEquipe.jpg')
+    usina: '/conteudo/usina.jpg',
+    silos: '/conteudo/silos.jpg',
+    quadro: '/conteudo/quadro.jpg',
+    equipe: '/conteudo/equipe.jpg',
+    cliente1: '/conteudo/cliente1.jpg',
+    cliente2: '/conteudo/cliente2.jpg',
+    cliente3: '/conteudo/cliente3.jpg',
+    cliente4: '/conteudo/cliente4.svg'
 };
 
 export function urlDaImagem(chave: string): string {
