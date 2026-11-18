@@ -2,17 +2,10 @@
   <header class="main-menu" :class="{ 'menu-rolado': rolado, 'menu-escondido': escondido }">
     <div class="container-site container-menu">
 
-      <div class="imagem-texto" @click="irPara('inicio')">
-        <a href="https://painel.limatecms.com.br"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="logo-secreta"
-          aria-label="LimaTec"
-          @click.stop>
-          <LogoLimaTec Altura="46px" />
-        </a>
+      <a href="#inicio" class="imagem-texto" aria-label="Voltar ao início" @click.prevent="irPara('inicio')">
+        <LogoLimaTec Altura="46px" />
         <span class="texto-logo"> LimaTec </span>
-      </div>
+      </a>
 
       <nav class="menu-list">
         <a class="item-menu" :class="{ 'item-ativo': secaoAtiva === 'empresa' }"
@@ -184,13 +177,6 @@ export default defineComponent({
   cursor: pointer;
   transform-origin: left center;
   transition: transform .3s ease;
-}
-
-.logo-secreta {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  line-height: 0;
 }
 
 .menu-rolado .imagem-texto {
