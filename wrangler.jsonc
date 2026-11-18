@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lima-tec",
+  "account_id": "7cb8cb5d14b28765fc551e69f9d360a1",
   "compatibility_date": "2026-10-01",
   "observability": {
     "enabled": true
