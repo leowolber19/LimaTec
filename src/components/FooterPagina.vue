@@ -3,7 +3,14 @@
     <div class="container-site conteudo-footer">
       <div class="linha-footer">
         <div class="marca-footer">
-          <LogoLimaTec Altura="46px" class="logo-footer" />
+          <a href="https://painel.limatecms.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="logo-secreta-footer"
+            aria-label="LimaTec"
+            @click.stop>
+            <LogoLimaTec Altura="46px" class="logo-footer" />
+          </a>
           <div class="texto-marca">
             <span class="nome-marca"> LimaTec </span>
             <span class="slogan-marca"> Elétrica · Automação · Energia Solar </span>
@@ -101,6 +108,13 @@ props: {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.logo-secreta-footer {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  line-height: 0;
 }
 
 /* No rodapé o fundo é sempre escuro: força a variante clara do logo */
